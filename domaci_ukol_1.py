@@ -14,10 +14,10 @@ class Pizza(Item):
     ingredients: dict
 
     def add_extra(self, ingredient: str, quantity: int, price_per_ingredient: int):
+        if ingredient in self.ingredients:
+            self.ingredients[ingredient] += quantity
+        else:
             self.ingredients[ingredient] = quantity
-
-            extra_price = quantity*price_per_ingredient
-            self.price += extra_price
             
     def __str__(self):
          return f"Pizza {self.name} s ingrediencemi {self.ingredients} stojí {self.price} Kč."
